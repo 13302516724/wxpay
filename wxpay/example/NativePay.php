@@ -2,7 +2,8 @@
 //echo dirname(dirname(__FILE__))."/lib/WxPay.Api.php";
 namespace Zzx\wxpay\example;
 
-require_once dirname(dirname(__FILE__))."/lib/WxPayApi.php";
+use Zzx\wxpay\lib\WxPayApi;
+//require_once dirname(dirname(__FILE__))."/lib/WxPayApi.php";
 
 
 /**
@@ -53,7 +54,6 @@ class NativePay
 	{
 		if($input->GetTrade_type() == "NATIVE")
 		{
-			new WxPayApi();
 			$result = WxPayApi::unifiedOrder($input);
 			return $result;
 		}
