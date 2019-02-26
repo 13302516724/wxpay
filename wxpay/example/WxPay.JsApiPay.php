@@ -1,5 +1,5 @@
 <?php
-namespace Zzx\example\wxpay;
+namespace Zzx\wxpay\example;
 
 require_once dirname(dirname(__FILE__))."/lib/WxPay.Api.php";
 /**

@@ -2,7 +2,7 @@
 /**
 * 	配置账号信息
 */
-namespace Zzx\lib\wxpay;
+namespace Zzx\wxpay\lib;
 
 class WxPayConfig
 {
