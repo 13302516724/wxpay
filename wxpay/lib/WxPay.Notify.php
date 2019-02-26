@@ -5,6 +5,8 @@
  * @author widyhu
  *
  */
+namespace Zzx\lib\wxpay;
+
 class WxPayNotify extends WxPayNotifyReply
 {
 	/**
