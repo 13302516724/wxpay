@@ -53,6 +53,7 @@ class NativePay
 	{
 		if($input->GetTrade_type() == "NATIVE")
 		{
+			new WxPayApi();
 			$result = WxPayApi::unifiedOrder($input);
 			return $result;
 		}

@@ -1,4 +1,6 @@
 <?php
+namespace Zzx\wxpay\lib;
+use think\Exception;
 /**
  * 
  * 微信支付API异常类

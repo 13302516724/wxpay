@@ -3,7 +3,7 @@ namespace Zzx\wxpay\lib;
 
 require_once "WxPayException.php";
 require_once "WxPayConfig.php";
-require_once "WxPayWxPayDataBase.php";
+require_once "WxPayDataBase.php";
 
 /**
  * 
