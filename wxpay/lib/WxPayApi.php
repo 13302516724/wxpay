@@ -1,9 +1,9 @@
 <?php
 namespace Zzx\wxpay\lib;
 
-require_once "WxPay.Exception.php";
-require_once "WxPay.Config.php";
-require_once "WxPay.Data.php";
+require_once "WxPayException.php";
+require_once "WxPayConfig.php";
+require_once "WxPayWxPayDataBase.php";
 
 /**
  * 

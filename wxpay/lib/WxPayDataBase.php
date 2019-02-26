@@ -4,8 +4,8 @@
 **/
 namespace Zzx\wxpay\lib;
 
-require_once "WxPay.Config.php";
-require_once "WxPay.Exception.php";
+require_once "WxPayConfig.php";
+require_once "WxPayException.php";
 
 /**
  * 
@@ -747,6 +747,23 @@ class WxPayUnifiedOrder extends WxPayDataBase
 	{
 		return array_key_exists('openid', $this->values);
 	}
+
+    // 场景信息 json数据
+    public function SetSceneInfo($value)
+    {
+        $this->values['scene_info'] = $value;
+    }
+
+    // 场景信息
+    public function GetSceneInfo($value)
+    {
+        return $this->values['scene_info'];
+    }
+
+    public function IsSceneInfo()
+    {
+        return array_key_exists('scene_info', $this->values);
+    }
 }
 
 /**
@@ -1390,7 +1407,6 @@ class WxPayRefundQuery extends WxPayDataBase
 	* 获取随机字符串，不长于32位。推荐随机数生成算法的值
 	* @return 值
 	**/
-
 	public function GetNonce_str()
 	{
 		return $this->values['nonce_str'];
@@ -1399,7 +1415,6 @@ class WxPayRefundQuery extends WxPayDataBase
 	* 判断随机字符串，不长于32位。推荐随机数生成算法是否存在
 	* @return true 或 false
 	**/
-	
 	public function IsNonce_strSet()
 	{
 		return array_key_exists('nonce_str', $this->values);
@@ -1413,7 +1428,6 @@ class WxPayRefundQuery extends WxPayDataBase
 	{
 		$this->values['transaction_id'] = $value;
 	}
-	
 	/**
 	* 获取微信订单号的值
 	* @return 值
@@ -1426,7 +1440,6 @@ class WxPayRefundQuery extends WxPayDataBase
 	* 判断微信订单号是否存在
 	* @return true 或 false
 	**/
-	
 	public function IsTransaction_idSet()
 	{
 		return array_key_exists('transaction_id', $this->values);
@@ -1441,7 +1454,6 @@ class WxPayRefundQuery extends WxPayDataBase
 	{
 		$this->values['out_trade_no'] = $value;
 	}
-	
 	/**
 	* 获取商户系统内部的订单号的值
 	* @return 值
@@ -1450,7 +1462,6 @@ class WxPayRefundQuery extends WxPayDataBase
 	{
 		return $this->values['out_trade_no'];
 	}
-	
 	/**
 	* 判断商户系统内部的订单号是否存在
 	* @return true 或 false
@@ -1469,43 +1480,23 @@ class WxPayRefundQuery extends WxPayDataBase
 	{
 		$this->values['out_refund_no'] = $value;
 	}
-	
 	/**
 	* 获取商户退款单号的值
 	* @return 值
 	**/
-	
 	public function GetOut_refund_no()
 	{
 		return $this->values['out_refund_no'];
 	}
-	
 	/**
 	* 判断商户退款单号是否存在
 	* @return true 或 false
 	**/
-	
 	public function IsOut_refund_noSet()
 	{
 		return array_key_exists('out_refund_no', $this->values);
 	}
-	/**
-	* 设置微信退款单号refund_id、out_refund_no、out_trade_no、transaction_id四个参数必填一个，如果同时存在优先级为：refund_id>out_refund_no>transaction_id>out_trade_no
-	* @param string $value 
-	**/
-	public function SetRefufewnd_id($value)
-	{
-		$this->values['refund_id'] = $value;
-	}
-	
-	/**
-	* 获取微信退款单号refund_id、out_refund_no、out_trade_no、transaction_id四个参数必填一个，如果同时存在优先级为：refund_id>out_refund_no>transaction_id>out_trade_no的值
-	* @return 值
-	**/
-	public function GetRefund_id()
-	{
-		return $this->values['refund_id'];
-	}
+
 
 	/**
 	* 设置微信退款单号refund_id、out_refund_no、out_trade_no、transaction_id四个参数必填一个，如果同时存在优先级为：refund_id>out_refund_no>transaction_id>out_trade_no
@@ -1515,16 +1506,14 @@ class WxPayRefundQuery extends WxPayDataBase
 	{
 		$this->values['refund_id'] = $value;
 	}
-	
 	/**
 	* 获取微信退款单号refund_id、out_refund_no、out_trade_no、transaction_id四个参数必填一个，如果同时存在优先级为：refund_id>out_refund_no>transaction_id>out_trade_no的值
 	* @return 值
 	**/
-	public function GetReerfund_id()
+	public function GetRefund_id()
 	{
 		return $this->values['refund_id'];
 	}
-	
 	/**
 	* 判断微信退款单号refund_id、out_refund_no、out_trade_no、transaction_id四个参数必填一个，如果同时存在优先级为：refund_id>out_refund_no>transaction_id>out_trade_no是否存在
 	* @return true 或 false
@@ -1543,7 +1532,6 @@ class WxPayRefundQuery extends WxPayDataBase
  */
 class WxPayDownloadBill extends WxPayDataBase
 {
-	
 	/**
 	* 设置微信分配的公众账号ID
 	* @param string $value 
@@ -1590,7 +1578,6 @@ class WxPayDownloadBill extends WxPayDataBase
 	* 判断微信支付分配的商户号是否存在
 	* @return true 或 false
 	**/
-        
 	public function IsMch_idSet()
 	{
 		return array_key_exists('mch_id', $this->values);
@@ -1613,7 +1600,6 @@ class WxPayDownloadBill extends WxPayDataBase
 	{
 		return $this->values['device_info'];
 	}
-        
 	/**
 	* 判断微信支付分配的终端设备号，填写此字段，只下载该设备号的对账单是否存在
 	* @return true 或 false
@@ -1632,24 +1618,6 @@ class WxPayDownloadBill extends WxPayDataBase
 	{
 		$this->values['nonce_str'] = $value;
 	}
-        
-	/**
-	* 获取随机字符串，不长于32位。推荐随机数生成算法的值
-	* @return 值
-	**/
-	public function GetNonc4e_str()
-	{
-		return $this->values['nonce_str'];
-	}
-	/**
-	* 判断随机字符串，不长于32位。推荐随机数生成算法是否存在
-	* @return true 或 false
-	**/
-	public function IsNon34ce_strSet()
-	{
-		return array_key_exists('nonce_str', $this->values);
-	}
-        
 	/**
 	* 获取随机字符串，不长于32位。推荐随机数生成算法的值
 	* @return 值
@@ -1839,22 +1807,6 @@ class WxPayReport extends WxPayDataBase
 	{
 		$this->values['interface_url'] = $value;
 	}
-	/**
-	* 获取上报对应的接口的完整URL，类似：https://api.mch.weixin.qq.com/pay/unifiedorder对于被扫支付，为更好的和商户共同分析一次业务行为的整体耗时情况，对于两种接入模式，请都在门店侧对一次被扫行为进行一次单独的整体上报，上报URL指定为：https://api.mch.weixin.qq.com/pay/micropay/total关于两种接入模式具体可参考本文档章节：被扫支付商户接入模式其它接口调用仍然按照调用一次，上报一次来进行。的值
-	* @return 值
-	**/
-	public function GetInte56rface_url()
-	{
-		return $this->values['interface_url'];
-	}
-	/**
-	* 判断上报对应的接口的完整URL，类似：https://api.mch.weixin.qq.com/pay/unifiedorder对于被扫支付，为更好的和商户共同分析一次业务行为的整体耗时情况，对于两种接入模式，请都在门店侧对一次被扫行为进行一次单独的整体上报，上报URL指定为：https://api.mch.weixin.qq.com/pay/micropay/total关于两种接入模式具体可参考本文档章节：被扫支付商户接入模式其它接口调用仍然按照调用一次，上报一次来进行。是否存在
-	* @return true 或 false
-	**/
-	public function IsIntetg5rface_urlSet()
-	{
-		return array_key_exists('interface_url', $this->values);
-	}        
 	/**
 	* 获取上报对应的接口的完整URL，类似：https://api.mch.weixin.qq.com/pay/unifiedorder对于被扫支付，为更好的和商户共同分析一次业务行为的整体耗时情况，对于两种接入模式，请都在门店侧对一次被扫行为进行一次单独的整体上报，上报URL指定为：https://api.mch.weixin.qq.com/pay/micropay/total关于两种接入模式具体可参考本文档章节：被扫支付商户接入模式其它接口调用仍然按照调用一次，上报一次来进行。的值
 	* @return 值
@@ -2506,26 +2458,11 @@ class WxPayMicroPay extends WxPayDataBase
 	* 判断调用微信支付API的机器IP 是否存在
 	* @return true 或 false
 	**/
-	public function IsSpbill_crereate_ipSet()
-	{
-		return array_key_exists('spbill_create_ip', $this->values);
-	}
-	/**
-	* 获取调用微信支付API的机器IP 的值
-	* @return 值
-	**/
-	public function GetSpbill_creargte_ip()
-	{
-		return $this->values['spbill_create_ip'];
-	}
-	/**
-	* 判断调用微信支付API的机器IP 是否存在
-	* @return true 或 false
-	**/
 	public function IsSpbill_create_ipSet()
 	{
 		return array_key_exists('spbill_create_ip', $this->values);
 	}
+
 
 	/**
 	* 设置订单生成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。详见时间规则

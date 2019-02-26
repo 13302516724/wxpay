@@ -2,8 +2,8 @@
 ini_set('date.timezone','Asia/Shanghai');
 error_reporting(E_ERROR);
 
-require_once dirname(dirname(__FILE__))."/lib/WxPay.Api.php";
-require_once dirname(dirname(__FILE__))."/lib/WxPay.Notify.php";
+require_once dirname(dirname(__FILE__))."/lib/WxPayApi.php";
+require_once dirname(dirname(__FILE__))."/lib/WxPayNotify.php";
 require_once 'log.php';
 
 $f = dirname(dirname(__FILE__));

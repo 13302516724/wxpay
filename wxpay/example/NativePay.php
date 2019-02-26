@@ -2,7 +2,7 @@
 //echo dirname(dirname(__FILE__))."/lib/WxPay.Api.php";
 namespace Zzx\wxpay\example;
 
-require_once dirname(dirname(__FILE__))."/lib/WxPay.Api.php";
+require_once dirname(dirname(__FILE__))."/lib/WxPayApi.php";
 
 
 /**
